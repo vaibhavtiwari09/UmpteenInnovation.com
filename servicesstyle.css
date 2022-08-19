@@ -1,0 +1,621 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  html,body{
+    width: 100vw;
+    min-height: 100vh;
+
+  }
+  #main{
+    width: 100vw;
+   min-height: 100vh;
+   overflow: hidden;
+   
+  }
+  #homepage{
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    
+    background-image: linear-gradient(to right top, #321658, #611668, #910e70, #c00270, #eb1267);
+  }
+  #nav {
+    width: 100%;
+    margin-top: -20px;
+    display: inherit;
+    z-index: 99999999;
+   
+  }
+  ul,
+  li {
+    list-style: none outside none;
+  }
+  /* basic menu styles */
+  .nav-menu {
+    display: block;
+    background: #74adaa;
+    width: 1100px;
+    z-index: 99999999;
+  
+    margin: 30px auto 30px;
+  }
+  .nav-menu > li {
+    display: inline;
+    float: left;
+    z-index: 999999;
+    border-right: 1px solid #333;
+    position: relative;
+  }
+  .nav-menu > li:last-child {
+    border-right: none;
+  }
+  .nav-menu li a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    font-smooth: antialiased;
+    text-transform: uppercase;
+    overflow: visible;
+    line-height: 20px;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 15px 30px 15px 31px;
+  }
+  
+  /* animation domination */
+  .three-d {
+    perspective: 200px;
+    transition: all 0.07s linear;
+    position: relative;
+  }
+  
+  .three-d:not(.active):hover {
+    cursor: pointer;
+  }
+  
+  .three-d:not(.active):hover .three,
+  .three-d:not(.active):focus .three {
+    transform: translateZ(-25px) rotateX(90deg);
+  }
+  
+  .three {
+    transition: all 0.3s ease-out;
+    transform: translatez(-25px);
+    transform-style: preserve-3d;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .front {
+    transform: rotatex(0deg) translatez(25px);
+  }
+  
+  .back {
+    transform: rotatex(-90deg) translatez(25px);
+    color: #ffe7c4;
+  }
+  
+  .front,
+  .back {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    background: #000000;
+    padding: 15px 30px 15px 31px;
+    color: white;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+  .nav-menu li .active .front,
+  .nav-menu li .active .back,
+  .nav-menu li a:hover .front,
+  .nav-menu li a:hover .back {
+    background-color: yellow;
+    background-size: 5px 5px;
+    background-position: 0 0, 30px 30px;
+    color: black;
+  }
+  .nav-menu ul {
+    position: absolute;
+    left: -40px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 10px;
+    width: 200px;
+    transition: all 0.3s ease-in;
+    transform-origin: 0px 0px;
+    transform: rotateX(-90deg);
+    backface-visibility: hidden;
+  }
+  .nav-menu > li:hover ul {
+    display: block;
+    transform: rotateX(0deg);
+  }
+  #img_services{
+    width: 100%;
+    height: 100%;
+   
+    position:absolute;
+    top: 0%;
+   
+    /* opacity: 42%; */
+  }
+  .toggle-menu {
+    transform: translateX(10%) translateY(100%);
+    display: none;
+    position: relative;
+    /* top: 30px; */
+    left: -30px;
+    z-index: 100;
+  }
+  .toggle-icon {
+    font-size: 30px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .toggle-items {
+    list-style: none;
+    background-color: #1a1943;
+    width: 130px;
+    line-height: 47px;
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+    padding-left: 3vw;
+  
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  li[class^="toggle-item-"] a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: lighter;
+  }
+  li[class^="toggle-item-"] a:hover {
+    color: #dc18ff !important;
+  }
+  .toggle-item-1 a {
+    color: rgb(97 159 255) !important;
+  }
+  #toggle-btn {
+    display: none;
+  }
+  #toggle-btn:checked + .toggle-items {
+    display: block;
+  }
+  @media screen and (max-width: 600px) {
+    .toggle-menu {
+      top: -3%;
+      display: block;
+      position: absolute;
+      left: 2%;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .toggle-menu {
+      display: none;
+    }
+  }
+  @-webkit-keyframes zoomIn {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  #img_services img{
+    width: 100%;
+    height: 100%;
+    opacity: 42%;
+  }
+  
+  #our_services{
+    font-size: 99px;
+    color: white;
+  font-family: "Tempus Sans ITC";
+    position:absolute;
+   top: 45%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+  }
+
+
+  
+  #uiuxpage{
+    position:absolute;
+    top: 100vh;
+    width: 100vw;
+    min-height: 150vh;
+    overflow: hidden;
+    
+    background-color:black;
+  }
+  #uiuxpage h1{
+    font-size: 50px;
+    color: white;
+    font-family: "raleway";
+    font-weight: 300;
+    margin-top: 50px;
+    text-align: center;
+  }
+  #uiuxpage p{
+    width: 60%;
+    color: white;
+    text-align: center;
+    margin-left: 20%;
+    font-family: "Segoe UI";
+
+    font-size: 20px;
+    margin-top: 2%;
+  }
+  #grid_div{
+    width: 60vw;
+    height: 60vh;
+    margin-top:4%;
+    margin-left: 20%;
+    display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+ 
+    background-color: white;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+ 
+    
+    font-size: 30px;
+    text-align: center;
+  }
+   #grid_div h5{
+    font-size: 16px;
+    font-family: "Segoe UI";
+    font-weight: 200;
+  }
+  #lifecycle{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+  }
+  #lifecycle img{
+    width: 100%;
+    height: 100%;
+  }
+  #cyclediv{
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 5%;
+    height: 55%;
+    background-color: white;
+  }
+  #talk{
+    width: 100%;
+    height: 30vh;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 10px 259px; 
+    background-image: url(talkwithus.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  #talkk {
+    height: 21%;
+    width: 25%;
+    margin-left: 25px;
+    color: white;
+    border-radius: 5% 5% 5% 5%;
+    background-color: #74adaa;
+    border: none;
+    font-size: 28px;
+}
+
+
+  #talkk:hover{
+    background-color:#74adaab3;
+    cursor: pointer;
+    border: #910e70 1PX solid   ;
+  }
+  #talk h2{
+    width: 70%;
+    font-family: "Segoe UI";
+    font-size: 25px;
+  }
+  
+  
+  form p {
+    font-size: 120%;
+  }
+  
+  .ctrlqHeaderMast {
+    height: 70vh;
+    margin-top: 10%;  
+    background: #009688;
+    background-image: url(form.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .ctrlqFormContent {
+    color: rgba(0,0,0,.87);
+    padding: 20px 35px
+  }
+  
+  .ctrlqFormContentWrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column
+  }
+  
+  .ctrlqAccent {
+    background-color: #a7ffeb;
+    height: 8px;
+  }
+  .ctrlqCenteredContent {
+    margin: auto;
+    width: 600px; 
+  }
+  .ctrlqFormCard {
+    background-color: #fff;
+    margin-bottom: 48px;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+    word-wrap: break-word
+  }
+  
+  .ctrlqFormCard:first-of-type {
+      margin-top: -400px;
+  
+  }
+  
+  .ctrlqHeaderTitle {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 34px;
+    line-height: 135%;
+    max-width: 100%;
+    min-width: 0%;
+    margin-bottom: 22px
+  }
+  
+  @media (max-width: 660px) {
+    .ctrlqHeaderMast {
+      height: 278px;
+    }
+    .ctrlqFormCard:first-of-type {
+      margin-top: -190px;
+    }
+  
+    .ctrlqCenteredContent {
+      width: 90%;
+    }
+  }
+  
+  div.error {
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+    font-size: 0.8rem;
+    color: #FF4081;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media all and (max-width: 600px) {
+    #nav {
+      padding: 0px 0px;
+      height: 5vh;
+      display: none;
+    }
+    #img_services img {
+      height: 100vh;
+      opacity: 42%;
+    width: fit-content;
+    }
+    #our_services {
+      font-size: 102px;
+      color: white;
+      font-family: "Tempus Sans ITC";
+      position: absolute;
+      top: 45%;
+      left: 53%;
+      transform: translate(-50%,-50%);
+  }
+  #uiuxpage h1 {
+    font-size: 32px;
+    color: white;
+    font-family: "raleway";
+    font-weight: 300;
+    margin-top: 31px;
+    text-align: center;
+}
+#uiuxpage p {
+  width: 87%;
+  color: white;
+  text-align: center;
+  margin-left: 9%;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  margin-top: 2%;
+}
+#grid_div {
+  width: 68vw;
+  height: 131vh;
+  margin-top: 9%;
+  margin-left: 17%;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  background-color: white;
+}
+#uiuxpage h1 {
+  font-size: 36px;
+}
+#uiuxpage p {
+  width: 92%;
+  color: white;
+  text-align: center;
+  margin-left: 4%;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  margin-top: 2%;
+}
+#cyclediv {
+  margin-left: 10%;
+  width: 80%;
+  margin-top: 5%;
+  /* height: 55%; */
+  height: fit-content;
+  background-color: white;
+}
+#lifecycle {
+  width: 100vw;
+  height: max-content;
+  background-color: black;
+}
+#talk{
+  padding: 12px 0px;
+  margin-top: 10%;
+  height: 17vh;
+} 
+#talk h2 {
+  width: 50%;
+  font-family: "Segoe UI";
+  font-size: 13px;
+  margin-left: 89px;
+}
+#talkk {
+  height: 28%;
+  width: 22%;
+  margin-right: 10px; 
+  font-size: 14px;  
+}
+    
+
+
+
+
+    
+  }
